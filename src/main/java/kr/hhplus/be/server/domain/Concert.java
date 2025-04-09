@@ -21,10 +21,4 @@ public class Concert {
 
     @Column
     String location;
-
-    @Column
-    LocalDate startDate;
-
-    @Column
-    LocalDate endDate;
 }

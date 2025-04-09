@@ -10,17 +10,13 @@ public class ConcertResponse {
     public record GetConcertDetail(
             Long concertId,
             String concertName,
-            String concertLocation,
-            LocalDate concertStartDate,
-            LocalDate concertEndDate
+            String concertLocation
     ) {
         public static GetConcertDetail from(Concert concert) {
             return new GetConcertDetail(
                     concert.getId(),
                     concert.getName(),
-                    concert.getLocation(),
-                    concert.getStartDate(),
-                    concert.getEndDate());
+                    concert.getLocation());
         }
     }
 
