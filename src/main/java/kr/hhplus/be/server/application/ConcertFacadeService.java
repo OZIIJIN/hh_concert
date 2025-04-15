@@ -1,7 +1,6 @@
 package kr.hhplus.be.server.application;
 
 import kr.hhplus.be.server.domain.Concert;
-import kr.hhplus.be.server.domain.ConcertRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
