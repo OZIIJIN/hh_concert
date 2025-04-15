@@ -1,39 +1,40 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.reservation;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
+import jakarta.persistence.UniqueConstraint;
+import kr.hhplus.be.server.domain.concertHall.SeatId;
+import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleId;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "reservations")
+@Table(
+    name = "reserved_seats",
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"seat_id", "concert_schedule_id"})
+    })
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Reservation {
+public class ReservedSeat {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column
-  private ReservationStatus status;
-
-  @Column
-  private LocalDateTime createdAt=LocalDateTime.now();
+  @Embedded
+  private SeatId seatId;
 
   @Embedded
   private ConcertScheduleId concertScheduleId;
 
-  public Reservation(ReservationStatus status, ConcertScheduleId concertScheduleId) {
-    this.status = status;
+  public ReservedSeat(SeatId seatId, ConcertScheduleId concertScheduleId) {
+    this.seatId = seatId;
     this.concertScheduleId = concertScheduleId;
   }
-
 }

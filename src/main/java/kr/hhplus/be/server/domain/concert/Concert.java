@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.concert;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

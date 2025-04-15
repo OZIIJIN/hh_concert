@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.domain;
+package kr.hhplus.be.server.domain.concertHall;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 @Getter
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class SeatId implements Serializable {
+public class ConcertHallId implements Serializable {
 
-  @Column(name = "seat_id")
+  @Column(name = "concert_hall_id")
   private Long value;
 
-  public SeatId(Long value) {
+  public ConcertHallId(Long value) {
     if (value == null || value <= 0) {
-      throw new IllegalArgumentException("SeatId must be positive");
+      throw new IllegalArgumentException("ConcertHallId must be positive");
     }
     this.value = value;
   }
@@ -25,8 +25,8 @@ public class SeatId implements Serializable {
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (!(o instanceof SeatId)) return false;
-    SeatId that = (SeatId) o;
+    if (!(o instanceof ConcertHallId)) return false;
+    ConcertHallId that = (ConcertHallId) o;
     return value.equals(that.value);
   }
 
@@ -37,6 +37,7 @@ public class SeatId implements Serializable {
 
   @Override
   public String toString() {
-    return "SeatId{" + value + '}';
+    return "ConcertHallId{" + value + '}';
   }
+
 }

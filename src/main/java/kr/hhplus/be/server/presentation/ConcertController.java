@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.presentation;
 
 import kr.hhplus.be.server.application.ConcertFacadeService;
-import kr.hhplus.be.server.domain.Concert;
+import kr.hhplus.be.server.domain.concert.Concert;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
