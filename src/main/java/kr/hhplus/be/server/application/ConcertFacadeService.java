@@ -1,5 +1,6 @@
 package kr.hhplus.be.server.application;
 
+import kr.hhplus.be.server.application.ConcertInfo.V1_GetAvailable;
 import kr.hhplus.be.server.domain.concert.Concert;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class ConcertFacadeService {
         this.concertService = concertService;
     }
 
-    public List<Concert> getAvailableConcertList() {
-        return concertService.getAvailableConcertList();
+    public List<V1_GetAvailable> getAvailableConcertList() {
+      return List.of();
     }
 }

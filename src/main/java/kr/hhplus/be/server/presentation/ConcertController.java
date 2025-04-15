@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.presentation;
 
 import kr.hhplus.be.server.application.ConcertFacadeService;
+import kr.hhplus.be.server.application.ConcertInfo;
 import kr.hhplus.be.server.domain.concert.Concert;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,15 +22,8 @@ public class ConcertController {
 
     @GetMapping("/available")
     public ResponseEntity<ConcertResponse.GetConcertList> getAvailableConcertList() {
-        List<Concert> concerts = concertFacadeService.getAvailableConcertList();
+        List<ConcertInfo.V1_GetAvailable> concerts = concertFacadeService.getAvailableConcertList();
 
-        List<ConcertResponse.GetConcertDetail> concertDetails = new ArrayList<>();
-
-        for (Concert concert : concerts) {
-            ConcertResponse.GetConcertDetail concertDetail = ConcertResponse.GetConcertDetail.from(concert);
-            concertDetails.add(concertDetail);
-        }
-
-        return ResponseEntity.ok(ConcertResponse.GetConcertList.from(concertDetails));
+        return ResponseEntity.ok(ConcertResponse.GetConcertList.from(concerts));
     }
 }
