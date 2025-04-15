@@ -1,6 +1,8 @@
 package kr.hhplus.be.server.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -30,19 +32,17 @@ public class ConcertSchedule {
   @Column(nullable = false)
   private LocalDateTime endTime;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "concert_id", nullable = false)
-  private Concert concert;
+  @Embedded
+  private ConcertId concertId;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "concert_hall_id", nullable = false)
-  private ConcertHall concertHall;
+  @Embedded
+  private ConcertHallId concertHallId;
 
-  public ConcertSchedule(LocalDateTime startTime, LocalDateTime endTime, Concert concert,
-      ConcertHall concertHall) {
+  public ConcertSchedule(LocalDateTime startTime, LocalDateTime endTime, ConcertId concertId,
+      ConcertHallId concertHallId) {
     this.startTime = startTime;
     this.endTime = endTime;
-    this.concert = concert;
-    this.concertHall = concertHall;
+    this.concertId = concertId;
+    this.concertHallId = concertHallId;
   }
 }
