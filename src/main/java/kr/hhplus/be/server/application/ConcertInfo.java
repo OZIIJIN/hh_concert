@@ -1,32 +1,41 @@
 package kr.hhplus.be.server.application;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import kr.hhplus.be.server.domain.concert.Concert;
 import kr.hhplus.be.server.domain.concertHall.ConcertHall;
+import kr.hhplus.be.server.domain.concertHall.Seat;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertSchedule;
 
 public class ConcertInfo {
 
-  public record V1_GetAvailable(
+  public record GetAvailableConcerts(
       Long concertId,
       String concertTitle,
       String concertArtist,
       String concertHallName,
       String concertHallLocation,
+      Long concertScheduleId,
       LocalDateTime concertStartTime,
       LocalDateTime concertEndTime,
       int availableSeatsCount
   ) {
 
-    public static V1_GetAvailable from(Concert concert, ConcertHall concertHall,
+    public static GetAvailableConcerts from(Concert concert, ConcertHall concertHall,
         ConcertSchedule concertSchedule, int availableSeatsCount) {
-      return new V1_GetAvailable(
+      return new GetAvailableConcerts(
           concert.getId(),concert.getTitle(), concert.getArtist(),
           concertHall.getName(), concertHall.getLocation(),
-          concertSchedule.getStartTime(), concertSchedule.getEndTime(),
+          concertSchedule.getId(), concertSchedule.getStartTime(), concertSchedule.getEndTime(),
           availableSeatsCount
       );
+    }
+  }
+
+  public record GetAvailableSeat(
+      int seatNum
+  ) {
+    public static GetAvailableSeat from(Seat seat) {
+      return new GetAvailableSeat(seat.getNumber());
     }
   }
 

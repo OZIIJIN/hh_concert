@@ -1,41 +1,59 @@
 package kr.hhplus.be.server.presentation;
 
 import java.time.LocalDateTime;
-import kr.hhplus.be.server.application.ConcertInfo;
-import kr.hhplus.be.server.application.ConcertInfo.V1_GetAvailable;
-import kr.hhplus.be.server.domain.concert.Concert;
 
 import java.util.List;
+import kr.hhplus.be.server.application.ConcertInfo;
+import kr.hhplus.be.server.application.ConcertInfo.GetAvailableConcerts;
 
 public class ConcertResponse {
 
-    public record GetConcertDetail(
-            Long concertId,
-            String concertTitle,
-            String concertArtist,
-            String concertHallName,
-            String concertHallLocation,
-            LocalDateTime concertStartTime,
-            LocalDateTime concertEndTime,
-            int availableSeatsCount
-    ) {
-        public static GetConcertDetail from(ConcertInfo.V1_GetAvailable concertInfo) {
-            return new GetConcertDetail(
-                concertInfo.concertId(), concertInfo.concertTitle(), concertInfo.concertArtist(),
-                concertInfo.concertHallName(), concertInfo.concertHallLocation(),
-                concertInfo.concertStartTime(), concertInfo.concertEndTime(),
-                concertInfo.availableSeatsCount()
-            );
-        }
+  public record V1_GetAvailable(
+      Long concertId,
+      String concertTitle,
+      String concertArtist,
+      String concertHallName,
+      String concertHallLocation,
+      Long concertScheduleId,
+      LocalDateTime concertStartTime,
+      LocalDateTime concertEndTime,
+      int availableSeatsCount
+  ) {
+    public static V1_GetAvailable from(GetAvailableConcerts concertInfo) {
+      return new V1_GetAvailable(
+          concertInfo.concertId(), concertInfo.concertTitle(), concertInfo.concertArtist(),
+          concertInfo.concertHallName(), concertInfo.concertHallLocation(),
+          concertInfo.concertScheduleId(), concertInfo.concertStartTime(), concertInfo.concertEndTime(),
+          concertInfo.availableSeatsCount()
+      );
     }
+  }
 
-    public record GetConcertList(
-            List<GetConcertDetail> concerts
-    ) {
-        public static GetConcertList from(List<V1_GetAvailable> concertList) {
-            return new GetConcertList(
-                concertList.stream().map(GetConcertDetail::from).toList()
-            );
-        }
+  public record V1_GetAvailableList(
+      List<V1_GetAvailable> concerts
+  ) {
+    public static V1_GetAvailableList from(List<GetAvailableConcerts> info) {
+      return new V1_GetAvailableList(
+          info.stream().map(V1_GetAvailable::from).toList()
+      );
     }
+  }
+
+  public record V1_GetAvailableSeat(
+      int seatNum
+  ) {
+    public static V1_GetAvailableSeat from(ConcertInfo.GetAvailableSeat info) {
+      return new V1_GetAvailableSeat(info.seatNum());
+    }
+  }
+
+  public record V1_GetAvailableSeats(
+      List<V1_GetAvailableSeat> seatNums
+  ) {
+    public static V1_GetAvailableSeats from(List<ConcertInfo.GetAvailableSeat> info) {
+      return new V1_GetAvailableSeats(
+          info.stream().map(V1_GetAvailableSeat::from).toList()
+      );
+    }
+  }
 }

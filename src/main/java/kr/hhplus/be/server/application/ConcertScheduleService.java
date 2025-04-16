@@ -2,6 +2,7 @@ package kr.hhplus.be.server.application;
 
 import java.util.List;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertSchedule;
+import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleCommand;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,9 @@ public class ConcertScheduleService {
 
   public List<ConcertSchedule> findUpComingConcert() {
     return concertScheduleRepository.findUpcomingConcert();
+  }
+
+  public ConcertSchedule findById(ConcertScheduleCommand.Id cmd) {
+    return concertScheduleRepository.findById(cmd.concertScheduleId());
   }
 }
