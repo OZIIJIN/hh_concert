@@ -3,7 +3,6 @@ package kr.hhplus.be.server.presentation;
 import java.time.LocalDateTime;
 import kr.hhplus.be.server.application.ConcertInfo;
 import kr.hhplus.be.server.application.ConcertInfo.V1_GetAvailable;
-import kr.hhplus.be.server.application.ConcertInfo.V1_GetAvailableList;
 import kr.hhplus.be.server.domain.concert.Concert;
 
 import java.util.List;

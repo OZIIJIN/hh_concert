@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.application;
 
 import kr.hhplus.be.server.domain.concert.Concert;
+import kr.hhplus.be.server.domain.concert.ConcertId;
 import kr.hhplus.be.server.domain.concert.ConcertRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,9 @@ public class ConcertService {
 
     public List<Concert> getAvailableConcertList() {
         return concertRepository.findAvailableConcerts();
+    }
+
+    public Concert findById(ConcertId concertId) {
+        return concertRepository.findById(concertId.getValue());
     }
 }
