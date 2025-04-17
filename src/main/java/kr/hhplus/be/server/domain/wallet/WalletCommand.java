@@ -10,4 +10,12 @@ public class WalletCommand {
   ) {
   }
 
+  public record UserId(
+      UUID userId
+  ) {
+    public static UserId from(UUID uuid) {
+      return new UserId(uuid);
+    }
+  }
+
 }

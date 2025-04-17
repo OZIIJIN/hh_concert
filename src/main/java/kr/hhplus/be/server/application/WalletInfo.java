@@ -7,8 +7,8 @@ public class WalletInfo {
   public record Balance(
       int Balance
   ) {
-    public static Balance from(Wallet wallet) {
-      return new Balance(wallet.getBalance());
+    public static Balance from(int balance) {
+      return new Balance(balance);
     }
   }
 
