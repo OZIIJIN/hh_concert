@@ -2,9 +2,12 @@ package kr.hhplus.be.server.domain.reservation;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import kr.hhplus.be.server.domain.concertHall.SeatId;
@@ -33,8 +36,12 @@ public class ReservedSeat {
   @Embedded
   private ConcertScheduleId concertScheduleId;
 
-  public ReservedSeat(SeatId seatId, ConcertScheduleId concertScheduleId) {
+  private ReservedSeat(SeatId seatId, ConcertScheduleId concertScheduleId) {
     this.seatId = seatId;
     this.concertScheduleId = concertScheduleId;
+  }
+
+  public static ReservedSeat create(SeatId seatId, ConcertScheduleId concertScheduleId) {
+    return new ReservedSeat(seatId, concertScheduleId);
   }
 }

@@ -2,6 +2,7 @@ package kr.hhplus.be.server.domain.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 import lombok.AccessLevel;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserId {
+public class UserId implements Serializable {
 
   @Column(name = "user_id", nullable = false, updatable = false, columnDefinition = "BINARY(16)")
   private UUID value;
