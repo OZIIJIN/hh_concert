@@ -6,6 +6,10 @@ public class UserCommand {
 
   public record Id (
       UUID userId
-  ) { }
+  ) {
+    public static Id from(UUID userId) {
+      return new Id(userId);
+    }
+  }
 
 }
