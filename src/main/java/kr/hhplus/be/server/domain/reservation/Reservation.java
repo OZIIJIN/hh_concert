@@ -8,7 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.UUID;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleId;
+import kr.hhplus.be.server.domain.user.UserId;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,14 +29,19 @@ public class Reservation {
   private ReservationStatus status;
 
   @Column
-  private LocalDateTime createdAt=LocalDateTime.now();
+  private LocalDateTime createdAt;
 
   @Embedded
   private ConcertScheduleId concertScheduleId;
 
-  public Reservation(ReservationStatus status, ConcertScheduleId concertScheduleId) {
+  @Embedded
+  private UserId userId;
+
+  public Reservation(ReservationStatus status, ConcertScheduleId concertScheduleId, UserId userId) {
     this.status = status;
     this.concertScheduleId = concertScheduleId;
+    this.createdAt = LocalDateTime.now();
+    this.userId = userId;
   }
 
 }
