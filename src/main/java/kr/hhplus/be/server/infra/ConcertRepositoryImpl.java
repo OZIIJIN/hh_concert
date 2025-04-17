@@ -12,4 +12,9 @@ public class ConcertRepositoryImpl implements ConcertRepository {
     public List<Concert> findAvailableConcerts() {
         return List.of();
     }
+
+    @Override
+    public Concert findById(Long value) {
+        return null;
+    }
 }
