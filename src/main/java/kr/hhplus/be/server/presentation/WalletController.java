@@ -3,7 +3,7 @@ package kr.hhplus.be.server.presentation;
 import java.util.UUID;
 import kr.hhplus.be.server.application.WalletFacadeService;
 import kr.hhplus.be.server.application.WalletInfo;
-import kr.hhplus.be.server.domain.wallet.WalletCommand;
+import kr.hhplus.be.server.domain.wallet.WalletCommand.UserIdCommand;
 import kr.hhplus.be.server.presentation.WalletResponse.V1_GetBalance;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +30,7 @@ public class WalletController {
 
   @GetMapping("/api/v1/wallets/me")
   public ResponseEntity<V1_GetBalance> getBalance(@RequestParam UUID userId) {
-    WalletInfo.Balance info = walletFacadeService.getBalance(WalletCommand.UserId.from(userId));
+    WalletInfo.Balance info = walletFacadeService.getBalance(UserIdCommand.from(userId));
 
     return ResponseEntity.ok().body(WalletResponse.V1_GetBalance.from(info));
   }
