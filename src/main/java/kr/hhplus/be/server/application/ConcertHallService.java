@@ -27,4 +27,8 @@ public class ConcertHallService {
   public List<Seat> findAvailableSeats(ConcertHallId concertHallId) {
     return concertHallRepository.findAvailableSeats(concertHallId.getValue());
   }
+
+  public List<Seat> findSeatBySeatIds(List<Long> seats) {
+    return seats.stream().map(concertHallRepository::findSeatBySeatId).toList();
+  }
 }

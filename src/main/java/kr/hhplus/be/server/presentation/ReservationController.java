@@ -20,7 +20,7 @@ public class ReservationController {
   @PostMapping("/api/v1/reservations")
   public ResponseEntity<ReservationResponse.V1_Reservation> reservationSeats(
       @RequestBody ReservationRequest.V1_Reservation req) {
-    ReservationInfo.Id info = reservationFacadeService.reservationSeats(req.toCommand());
+    ReservationInfo.ReservationDetail info = reservationFacadeService.reservationSeats(req.toCommand());
 
     return ResponseEntity.ok().body(ReservationResponse.V1_Reservation.from(info));
   }

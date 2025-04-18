@@ -30,6 +30,9 @@ public class Seat {
   @Column(nullable = false)
   private int number;
 
+  @Column
+  private int price;
+
   @ManyToOne
   @JoinColumn(name = "concert_hall_id", nullable = false)
   private ConcertHall concertHall;

@@ -9,4 +9,6 @@ public interface ConcertHallRepository {
   int countTotalSeats(Long concertHallId);
 
   List<Seat> findAvailableSeats(Long value);
+
+  Seat findSeatBySeatId(Long seatId);
 }

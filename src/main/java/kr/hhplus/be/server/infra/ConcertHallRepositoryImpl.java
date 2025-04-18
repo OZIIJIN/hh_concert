@@ -23,4 +23,9 @@ public class ConcertHallRepositoryImpl implements ConcertHallRepository {
   public List<Seat> findAvailableSeats(Long value) {
     return List.of();
   }
+
+  @Override
+  public Seat findSeatBySeatId(Long seatId) {
+    return null;
+  }
 }

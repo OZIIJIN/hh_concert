@@ -1,5 +1,8 @@
 package kr.hhplus.be.server.application;
 
+import java.util.List;
+import kr.hhplus.be.server.application.ReservationInfo.ReservationDetail;
+import kr.hhplus.be.server.domain.concertHall.Seat;
 import kr.hhplus.be.server.domain.concertHall.SeatId;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleId;
 import kr.hhplus.be.server.domain.reservation.Reservation;
@@ -13,14 +16,21 @@ import org.springframework.transaction.annotation.Transactional;
 public class ReservationFacadeService {
 
   private final ReservationService reservationService;
+  private final ConcertHallService concertHallService;
 
-  public ReservationFacadeService(ReservationService reservationService) {
+  public ReservationFacadeService(ReservationService reservationService,
+      ConcertHallService concertHallService) {
     this.reservationService = reservationService;
+    this.concertHallService = concertHallService;
   }
 
-  public ReservationInfo.Id reservationSeats(Reserve cmd) {
+  public ReservationInfo.ReservationDetail reservationSeats(Reserve cmd) {
     ReservationId reservationId = reservationService.createTemporary(cmd);
 
-    return new ReservationInfo.Id(reservationId);
+    List<Seat> seats = concertHallService.findSeatBySeatIds(cmd.seats());
+
+    int totalPrice = seats.stream().mapToInt(Seat::getPrice).sum();
+
+    return ReservationDetail.from(reservationId, seats, totalPrice);
   }
 }
