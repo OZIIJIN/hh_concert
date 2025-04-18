@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.infra;
 
 import java.util.UUID;
+import kr.hhplus.be.server.domain.user.UserId;
 import kr.hhplus.be.server.domain.wallet.Wallet;
 import kr.hhplus.be.server.domain.wallet.WalletRepository;
 import org.springframework.stereotype.Repository;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class WalletRepositoryImpl implements WalletRepository {
 
   @Override
-  public Wallet findWalletByUserId(UUID uuid) {
+  public Wallet findWalletByUserId(UserId userId) {
     return null;
   }
 }

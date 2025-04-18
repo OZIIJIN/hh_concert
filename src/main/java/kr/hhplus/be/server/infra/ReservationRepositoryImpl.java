@@ -22,4 +22,9 @@ public class ReservationRepositoryImpl implements ReservationRepository {
   public Reservation saveReservation(Reservation reservation) {
     return null;
   }
+
+  @Override
+  public Reservation findById(Long reservationId) {
+    return null;
+  }
 }
