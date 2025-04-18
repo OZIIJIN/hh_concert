@@ -1,8 +1,9 @@
 package kr.hhplus.be.server.application;
 
+import kr.hhplus.be.server.domain.user.UserId;
 import kr.hhplus.be.server.domain.wallet.Wallet;
 import kr.hhplus.be.server.domain.wallet.WalletCommand.Charge;
-import kr.hhplus.be.server.domain.wallet.WalletCommand.UserId;
+import kr.hhplus.be.server.domain.wallet.WalletCommand.UserIdCommand;
 import kr.hhplus.be.server.domain.wallet.WalletRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +25,13 @@ public class WalletService {
   }
 
   @Transactional(readOnly = true)
-  public int getBalance(UserId cmd) {
+  public int getBalance(UserIdCommand cmd) {
     Wallet wallet = walletRepository.findWalletByUserId(cmd.userId());
     return wallet.getBalance();
+  }
+
+  public void pay(UserId userId, int totalPrice) {
+    Wallet wallet = walletRepository.findWalletByUserId(userId);
+    wallet.use(totalPrice);
   }
 }

@@ -1,9 +1,8 @@
 package kr.hhplus.be.server.application;
 
 import kr.hhplus.be.server.application.WalletInfo.Balance;
-import kr.hhplus.be.server.domain.wallet.Wallet;
 import kr.hhplus.be.server.domain.wallet.WalletCommand.Charge;
-import kr.hhplus.be.server.domain.wallet.WalletCommand.UserId;
+import kr.hhplus.be.server.domain.wallet.WalletCommand.UserIdCommand;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +18,7 @@ public class WalletFacadeService {
     walletService.charge(cmd);
   }
 
-  public Balance getBalance(UserId cmd) {
+  public Balance getBalance(UserIdCommand cmd) {
     int balance = walletService.getBalance(cmd);
 
     return WalletInfo.Balance.from(balance);

@@ -40,4 +40,12 @@ public class ReservationService {
 
     return new ReservationId(savedReservation.getId());
   }
+
+  public Reservation findById(Long reservationId) {
+    return reservationRepository.findById(reservationId);
+  }
+
+  public void toConfirm(Reservation reservation) {
+    reservation.confirm();
+  }
 }
