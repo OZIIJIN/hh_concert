@@ -1,20 +1,23 @@
 package kr.hhplus.be.server.domain.wallet;
 
 import java.util.UUID;
+import kr.hhplus.be.server.domain.user.UserId;
 
 public class WalletCommand {
 
   public record Charge(
-      UUID userId,
+      UserId userId,
       int amount
   ) {
+
   }
 
-  public record UserId(
-      UUID userId
+  public record UserIdCommand(
+      UserId userId
   ) {
-    public static UserId from(UUID uuid) {
-      return new UserId(uuid);
+
+    public static UserIdCommand from(UUID uuid) {
+      return new UserIdCommand(new UserId(uuid));
     }
   }
 

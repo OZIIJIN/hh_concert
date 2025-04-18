@@ -9,4 +9,6 @@ public interface ReservationRepository {
   boolean existsAny(Long aLong, List<Long> seats);
 
   Reservation saveReservation(Reservation reservation);
+
+  Reservation findById(Long reservationId);
 }
