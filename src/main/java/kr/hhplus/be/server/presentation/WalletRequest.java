@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.presentation;
 
 import java.util.UUID;
+import kr.hhplus.be.server.domain.user.UserId;
 import kr.hhplus.be.server.domain.wallet.WalletCommand;
 
 public class WalletRequest {
@@ -10,7 +11,7 @@ public class WalletRequest {
       int amount
   ) {
     public WalletCommand.Charge toCommand() {
-      return new WalletCommand.Charge(userId, amount);
+      return new WalletCommand.Charge(new UserId(userId), amount);
     }
   }
 
