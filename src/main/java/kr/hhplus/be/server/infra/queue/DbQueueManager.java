@@ -35,6 +35,12 @@ public class DbQueueManager implements QueueManager {
 
   @Override
   public void validateToken(UUID tokenId) {
+    QueueToken token = queueTokenRepository.findById(tokenId);
+
+    if (token.isExpired()) throw new IllegalArgumentException("만료된 토큰 입니다.");
+
+    int current = getCurrentPosition();
+    if (!token.isAccessible(current)) throw new IllegalArgumentException("접근 불가");
   }
 
   @Override
