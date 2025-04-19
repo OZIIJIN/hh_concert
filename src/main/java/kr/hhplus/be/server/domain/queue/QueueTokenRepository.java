@@ -9,4 +9,6 @@ public interface QueueTokenRepository {
   int countAllValid();
 
   QueueToken save(QueueToken token);
+
+  QueueToken findValidByUserId(UserId userId);
 }

@@ -31,8 +31,7 @@ public class DbQueueManager implements QueueManager {
 
   @Override
   public QueueToken getValidToken(UserId userId) {
-    return null;
-  }
+    return queueTokenRepository.findValidByUserId(userId);  }
 
   @Override
   public void validateToken(UUID tokenId) {
