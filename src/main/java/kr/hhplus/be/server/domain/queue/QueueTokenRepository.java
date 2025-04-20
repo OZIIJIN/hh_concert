@@ -14,4 +14,6 @@ public interface QueueTokenRepository {
   QueueToken findValidByUserId(UserId userId);
 
   QueueToken findById(UUID tokenId);
+
+  int getCurrentServedPosition();
 }

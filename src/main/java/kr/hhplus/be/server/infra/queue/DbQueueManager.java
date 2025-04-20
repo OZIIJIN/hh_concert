@@ -45,7 +45,7 @@ public class DbQueueManager implements QueueManager {
 
   @Override
   public int getCurrentPosition() {
-    return 0;
+    return queueTokenRepository.getCurrentServedPosition() + 1;
   }
 
   @Override
