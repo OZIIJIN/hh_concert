@@ -50,16 +50,19 @@ public class DbQueueManager implements QueueManager {
 
   @Override
   public void expireToken(UUID tokenId) {
-
+    QueueToken token = queueTokenRepository.findById(tokenId);
+    token.toExpired();
   }
 
   @Override
   public void enter(UUID tokenId) {
-
+    QueueToken token = queueTokenRepository.findById(tokenId);
+    token.toEntered();
   }
 
   @Override
-  public void leave(UUID tokenId) {
-
+  public void exit(UUID tokenId) {
+    QueueToken token = queueTokenRepository.findById(tokenId);
+    token.toExited();
   }
 }
