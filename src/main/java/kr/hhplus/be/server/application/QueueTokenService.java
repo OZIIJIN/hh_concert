@@ -44,4 +44,11 @@ public class QueueTokenService {
   public QueueToken getValidToken(UserId userId) {
     return queueManager.getValidToken(userId);
   }
+
+  public void exitAfterPayment(UserId userId) {
+    QueueToken token = getValidToken(userId);
+    validate(token.getId());
+
+    token.toExited();
+  }
 }

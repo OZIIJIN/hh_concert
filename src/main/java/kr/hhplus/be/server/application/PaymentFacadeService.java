@@ -12,12 +12,14 @@ public class PaymentFacadeService {
   private final PaymentService paymentService;
   private final WalletService walletService;
   private final ReservationService reservationService;
+  private final QueueTokenService queueTokenService;
 
   public PaymentFacadeService(PaymentService paymentService, WalletService walletService,
-      ReservationService reservationService) {
+      ReservationService reservationService, QueueTokenService queueTokenService) {
     this.paymentService = paymentService;
     this.walletService = walletService;
     this.reservationService = reservationService;
+    this.queueTokenService = queueTokenService;
   }
 
   @Transactional
@@ -26,5 +28,6 @@ public class PaymentFacadeService {
     walletService.pay(reservation.getUserId(), cmd.totalPrice());
     paymentService.savePayment(new ReservationId(reservation.getId()), cmd.totalPrice());
     reservationService.toConfirm(reservation);
+    queueTokenService.exitAfterPayment(reservation.getUserId());
   }
 }
