@@ -1,5 +1,7 @@
 package kr.hhplus.be.server.domain.queue;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 import kr.hhplus.be.server.domain.user.UserId;
 
@@ -18,4 +20,6 @@ public interface QueueTokenRepository {
   int getCurrentServedPosition();
 
   QueueToken findFirstWaitingAfter(int currentPosition);
+
+  List<QueueToken> findExpiredTokens(LocalDateTime now);
 }

@@ -74,6 +74,8 @@ public class QueueToken {
   }
 
   public void toExpired() {
-    this.status = QueueTokenStatus.EXPIRED;
+    if(this.status == QueueTokenStatus.WAITING && isExpired()) {
+      this.status = QueueTokenStatus.EXPIRED;
+    }
   }
 }

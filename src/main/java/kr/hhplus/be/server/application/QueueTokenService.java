@@ -1,6 +1,8 @@
 package kr.hhplus.be.server.application;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 import kr.hhplus.be.server.domain.queue.QueueToken;
 import kr.hhplus.be.server.domain.queue.QueueTokenRepository;
@@ -67,5 +69,9 @@ public class QueueTokenService {
     QueueToken token = getValidToken(userId);
     validate(token.getId());
     token.toExited();
+  }
+
+  public List<QueueToken> findExpiredTokens(LocalDateTime now) {
+    return queueTokenRepository.findExpiredTokens(now);
   }
 }

@@ -1,5 +1,7 @@
 package kr.hhplus.be.server.infra;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 import kr.hhplus.be.server.domain.queue.QueueToken;
 import kr.hhplus.be.server.domain.queue.QueueTokenRepository;
@@ -42,5 +44,10 @@ public class QueueTokenRepositoryImpl implements QueueTokenRepository {
   @Override
   public QueueToken findFirstWaitingAfter(int currentPosition) {
     return null;
+  }
+
+  @Override
+  public List<QueueToken> findExpiredTokens(LocalDateTime now) {
+    return List.of();
   }
 }
