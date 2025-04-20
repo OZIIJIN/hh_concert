@@ -29,5 +29,6 @@ public class PaymentFacadeService {
     paymentService.savePayment(new ReservationId(reservation.getId()), cmd.totalPrice());
     reservationService.toConfirm(reservation);
     queueTokenService.exitAfterPayment(reservation.getUserId());
+    queueTokenService.enterNext();
   }
 }

@@ -43,7 +43,6 @@ public class QueueTokenService {
     return new QueueTokenInfo.QueueTokenDetail(userPosition, currentPosition);
   }
 
-  @Transactional
   public void enterNext() {
     int currentPosition = getCurrentPosition();
 
@@ -52,12 +51,6 @@ public class QueueTokenService {
     if(!next.isExpired()) {
       next.toEntered();
     }
-  }
-
-  @Transactional
-  public void leave(UUID tokenId) {
-    QueueToken token = queueTokenRepository.findById(tokenId);
-    token.toExited();
   }
 
   @Transactional(readOnly = true)
@@ -70,7 +63,6 @@ public class QueueTokenService {
     return queueTokenRepository.findValidByUserId(userId);
   }
 
-  @Transactional
   public void exitAfterPayment(UserId userId) {
     QueueToken token = getValidToken(userId);
     validate(token.getId());
