@@ -23,8 +23,10 @@ public class QueueTokenService {
     queueManager.validateToken(tokenId);
   }
 
-  public int getMyPosition(UserId userId) {
-    return queueManager.getValidToken(userId).getPosition();
+  public QueueTokenInfo.QueueTokenDetail getMyPosition(UserId userId) {
+    int currentPosition = getCurrentPosition();
+    int userPosition = queueManager.getValidToken(userId).getPosition();
+    return new QueueTokenInfo.QueueTokenDetail(userPosition, currentPosition);
   }
 
   public void enter(UUID tokenId) {

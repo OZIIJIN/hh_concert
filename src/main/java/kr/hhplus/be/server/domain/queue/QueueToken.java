@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class QueueToken {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(columnDefinition = "BINARY(16)")
   private UUID id;
 
   @Embedded
@@ -43,6 +43,7 @@ public class QueueToken {
   private QueueTokenStatus status;
 
   private QueueToken(UserId userId, int position, LocalDateTime issuedAt, LocalDateTime expiresAt) {
+    this.id = UUID.randomUUID();
     this.userId = userId;
     this.position = position;
     this.issuedAt = issuedAt;
