@@ -55,14 +55,19 @@ public class DbQueueManager implements QueueManager {
   }
 
   @Override
-  public void enter(UUID tokenId) {
-    QueueToken token = queueTokenRepository.findById(tokenId);
-    token.toEntered();
-  }
-
-  @Override
   public void exit(UUID tokenId) {
     QueueToken token = queueTokenRepository.findById(tokenId);
     token.toExited();
+  }
+
+  @Override
+  public void enterNext() {
+    int currentPosition = getCurrentPosition();
+
+    QueueToken next = queueTokenRepository.findFirstWaitingAfter(currentPosition);
+
+    if(next.isExpired()) {
+      next.toEntered();
+    }
   }
 }

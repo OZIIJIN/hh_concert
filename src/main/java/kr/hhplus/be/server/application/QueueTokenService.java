@@ -29,8 +29,8 @@ public class QueueTokenService {
     return new QueueTokenInfo.QueueTokenDetail(userPosition, currentPosition);
   }
 
-  public void enter(UUID tokenId) {
-    queueManager.enter(tokenId);
+  public void enterNext() {
+    queueManager.enterNext();
   }
 
   public void leave(UUID tokenId) {
@@ -51,4 +51,5 @@ public class QueueTokenService {
 
     token.toExited();
   }
+
 }

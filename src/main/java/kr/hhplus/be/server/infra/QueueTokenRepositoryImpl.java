@@ -38,4 +38,9 @@ public class QueueTokenRepositoryImpl implements QueueTokenRepository {
   public int getCurrentServedPosition() {
     return 0;
   }
+
+  @Override
+  public QueueToken findFirstWaitingAfter(int currentPosition) {
+    return null;
+  }
 }

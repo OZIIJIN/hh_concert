@@ -9,6 +9,6 @@ public interface QueueManager {
   void validateToken(UUID tokenId);
   int getCurrentPosition();
   void expireToken(UUID tokenId);
-  void enter(UUID tokenId);
   void exit(UUID tokenId);
+  void enterNext();
 }
