@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.info;
 
 import java.time.LocalDateTime;
 import kr.hhplus.be.server.domain.concert.Concert;

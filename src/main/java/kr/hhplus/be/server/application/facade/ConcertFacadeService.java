@@ -1,16 +1,16 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.facade;
 
-import java.util.ArrayList;
-import kr.hhplus.be.server.application.ConcertInfo.GetAvailableConcerts;
-import kr.hhplus.be.server.application.ConcertInfo.GetAvailableSeat;
+import kr.hhplus.be.server.application.ConcertHallService;
+import kr.hhplus.be.server.application.info.ConcertInfo.GetAvailableConcerts;
+import kr.hhplus.be.server.application.info.ConcertInfo.GetAvailableSeat;
+import kr.hhplus.be.server.application.ConcertScheduleService;
+import kr.hhplus.be.server.application.ConcertService;
+import kr.hhplus.be.server.application.ReservationService;
 import kr.hhplus.be.server.domain.concert.Concert;
 import kr.hhplus.be.server.domain.concertHall.ConcertHall;
-import kr.hhplus.be.server.domain.concertHall.ConcertHallCommand;
-import kr.hhplus.be.server.domain.concertHall.ConcertHallId;
 import kr.hhplus.be.server.domain.concertHall.Seat;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertSchedule;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleCommand;
-import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleCommand.Id;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,8 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.facade;
 
-import kr.hhplus.be.server.application.WalletInfo.Balance;
+import kr.hhplus.be.server.application.info.WalletInfo;
+import kr.hhplus.be.server.application.info.WalletInfo.Balance;
+import kr.hhplus.be.server.application.WalletService;
 import kr.hhplus.be.server.domain.wallet.WalletCommand.Charge;
 import kr.hhplus.be.server.domain.wallet.WalletCommand.UserIdCommand;
 import org.springframework.stereotype.Service;

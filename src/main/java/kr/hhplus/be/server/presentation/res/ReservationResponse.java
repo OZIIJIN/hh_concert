@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.presentation.res;
 
 import java.util.List;
-import kr.hhplus.be.server.application.ReservationInfo;
+import kr.hhplus.be.server.application.info.ReservationInfo;
 import kr.hhplus.be.server.domain.concertHall.Seat;
 import kr.hhplus.be.server.domain.reservation.ReservationId;
 

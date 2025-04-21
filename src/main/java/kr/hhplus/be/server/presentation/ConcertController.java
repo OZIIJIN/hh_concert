@@ -1,8 +1,8 @@
 package kr.hhplus.be.server.presentation;
 
-import kr.hhplus.be.server.application.ConcertFacadeService;
-import kr.hhplus.be.server.application.ConcertInfo;
-import kr.hhplus.be.server.application.ConcertInfo.GetAvailableConcerts;
+import kr.hhplus.be.server.application.facade.ConcertFacadeService;
+import kr.hhplus.be.server.application.info.ConcertInfo;
+import kr.hhplus.be.server.application.info.ConcertInfo.GetAvailableConcerts;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleCommand;
 import kr.hhplus.be.server.presentation.res.ConcertResponse.V1_GetAvailableList;
 import kr.hhplus.be.server.presentation.res.ConcertResponse.V1_GetAvailableSeats;

@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.info;
 
 import java.util.List;
 import kr.hhplus.be.server.domain.concertHall.Seat;

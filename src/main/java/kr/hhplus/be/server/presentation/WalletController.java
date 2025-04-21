@@ -1,8 +1,8 @@
 package kr.hhplus.be.server.presentation;
 
 import java.util.UUID;
-import kr.hhplus.be.server.application.WalletFacadeService;
-import kr.hhplus.be.server.application.WalletInfo;
+import kr.hhplus.be.server.application.facade.WalletFacadeService;
+import kr.hhplus.be.server.application.info.WalletInfo;
 import kr.hhplus.be.server.domain.wallet.WalletCommand.UserIdCommand;
 import kr.hhplus.be.server.presentation.req.WalletRequest.V1_Charge;
 import kr.hhplus.be.server.presentation.res.WalletResponse;

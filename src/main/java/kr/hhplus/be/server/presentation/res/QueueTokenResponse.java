@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.presentation.res;
 
 import java.util.UUID;
-import kr.hhplus.be.server.application.QueueTokenInfo;
+import kr.hhplus.be.server.application.info.QueueTokenInfo;
 
 public class QueueTokenResponse {
 

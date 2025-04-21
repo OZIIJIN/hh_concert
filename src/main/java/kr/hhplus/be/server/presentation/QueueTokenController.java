@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.presentation;
 
 import java.util.UUID;
-import kr.hhplus.be.server.application.QueueTokenInfo;
+import kr.hhplus.be.server.application.info.QueueTokenInfo;
 import kr.hhplus.be.server.application.QueueTokenService;
 import kr.hhplus.be.server.domain.user.UserId;
 import kr.hhplus.be.server.presentation.res.QueueTokenResponse;

@@ -1,7 +1,7 @@
 package kr.hhplus.be.server.presentation;
 
-import kr.hhplus.be.server.application.ReservationFacadeService;
-import kr.hhplus.be.server.application.ReservationInfo;
+import kr.hhplus.be.server.application.facade.ReservationFacadeService;
+import kr.hhplus.be.server.application.info.ReservationInfo;
 import kr.hhplus.be.server.presentation.req.ReservationRequest;
 import kr.hhplus.be.server.presentation.res.ReservationResponse;
 import kr.hhplus.be.server.presentation.res.ReservationResponse.V1_Reservation;

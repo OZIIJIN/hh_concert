@@ -3,8 +3,8 @@ package kr.hhplus.be.server.presentation.res;
 import java.time.LocalDateTime;
 
 import java.util.List;
-import kr.hhplus.be.server.application.ConcertInfo;
-import kr.hhplus.be.server.application.ConcertInfo.GetAvailableConcerts;
+import kr.hhplus.be.server.application.info.ConcertInfo;
+import kr.hhplus.be.server.application.info.ConcertInfo.GetAvailableConcerts;
 
 public class ConcertResponse {
 

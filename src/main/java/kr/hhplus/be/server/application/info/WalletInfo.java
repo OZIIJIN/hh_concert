@@ -1,6 +1,4 @@
-package kr.hhplus.be.server.application;
-
-import kr.hhplus.be.server.domain.wallet.Wallet;
+package kr.hhplus.be.server.application.info;
 
 public class WalletInfo {
 

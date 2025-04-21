@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.info;
 
 public class QueueTokenInfo {
   public record QueueTokenDetail(

@@ -1,6 +1,6 @@
 package kr.hhplus.be.server.presentation;
 
-import kr.hhplus.be.server.application.PaymentFacadeService;
+import kr.hhplus.be.server.application.facade.PaymentFacadeService;
 import kr.hhplus.be.server.presentation.req.PaymentRequest.V1_PayReservation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

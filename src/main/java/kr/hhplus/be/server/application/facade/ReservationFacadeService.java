@@ -1,16 +1,13 @@
-package kr.hhplus.be.server.application;
+package kr.hhplus.be.server.application.facade;
 
 import java.util.List;
-import kr.hhplus.be.server.application.ReservationInfo.ReservationDetail;
+import kr.hhplus.be.server.application.ConcertHallService;
+import kr.hhplus.be.server.application.info.ReservationInfo.ReservationDetail;
+import kr.hhplus.be.server.application.ReservationService;
 import kr.hhplus.be.server.domain.concertHall.Seat;
-import kr.hhplus.be.server.domain.concertHall.SeatId;
-import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleId;
-import kr.hhplus.be.server.domain.reservation.Reservation;
-import kr.hhplus.be.server.domain.reservation.ReservationCommand.CreateReservedSeats;
 import kr.hhplus.be.server.domain.reservation.ReservationCommand.Reserve;
 import kr.hhplus.be.server.domain.reservation.ReservationId;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReservationFacadeService {
@@ -24,7 +21,7 @@ public class ReservationFacadeService {
     this.concertHallService = concertHallService;
   }
 
-  public ReservationInfo.ReservationDetail reservationSeats(Reserve cmd) {
+  public ReservationDetail reservationSeats(Reserve cmd) {
     ReservationId reservationId = reservationService.createTemporary(cmd);
 
     List<Seat> seats = concertHallService.findSeatBySeatIds(cmd.seats());
