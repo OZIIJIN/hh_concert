@@ -4,7 +4,9 @@ import java.util.UUID;
 import kr.hhplus.be.server.application.WalletFacadeService;
 import kr.hhplus.be.server.application.WalletInfo;
 import kr.hhplus.be.server.domain.wallet.WalletCommand.UserIdCommand;
-import kr.hhplus.be.server.presentation.WalletResponse.V1_GetBalance;
+import kr.hhplus.be.server.presentation.req.WalletRequest.V1_Charge;
+import kr.hhplus.be.server.presentation.res.WalletResponse;
+import kr.hhplus.be.server.presentation.res.WalletResponse.V1_GetBalance;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +24,7 @@ public class WalletController {
   }
 
   @PostMapping("/api/v1/wallets/charge")
-  public ResponseEntity<Void> charge(@RequestBody WalletRequest.V1_Charge req) {
+  public ResponseEntity<Void> charge(@RequestBody V1_Charge req) {
     walletFacadeService.charge(req.toCommand());
 
     return ResponseEntity.ok().build();

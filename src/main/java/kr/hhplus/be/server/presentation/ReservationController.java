@@ -2,7 +2,9 @@ package kr.hhplus.be.server.presentation;
 
 import kr.hhplus.be.server.application.ReservationFacadeService;
 import kr.hhplus.be.server.application.ReservationInfo;
-import kr.hhplus.be.server.domain.reservation.ReservationCommand;
+import kr.hhplus.be.server.presentation.req.ReservationRequest;
+import kr.hhplus.be.server.presentation.res.ReservationResponse;
+import kr.hhplus.be.server.presentation.res.ReservationResponse.V1_Reservation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +20,7 @@ public class ReservationController {
   }
 
   @PostMapping("/api/v1/reservations")
-  public ResponseEntity<ReservationResponse.V1_Reservation> reservationSeats(
+  public ResponseEntity<V1_Reservation> reservationSeats(
       @RequestBody ReservationRequest.V1_Reservation req) {
     ReservationInfo.ReservationDetail info = reservationFacadeService.reservationSeats(req.toCommand());
 

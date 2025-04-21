@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.presentation;
+package kr.hhplus.be.server.presentation.res;
 
 import kr.hhplus.be.server.application.WalletInfo;
 

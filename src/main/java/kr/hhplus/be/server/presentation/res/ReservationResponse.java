@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.presentation;
+package kr.hhplus.be.server.presentation.res;
 
 import java.util.List;
 import kr.hhplus.be.server.application.ReservationInfo;

@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.presentation;
+package kr.hhplus.be.server.presentation.req;
 
 import java.util.UUID;
 import kr.hhplus.be.server.domain.user.UserId;

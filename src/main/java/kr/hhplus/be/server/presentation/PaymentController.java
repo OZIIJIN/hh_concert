@@ -1,6 +1,7 @@
 package kr.hhplus.be.server.presentation;
 
 import kr.hhplus.be.server.application.PaymentFacadeService;
+import kr.hhplus.be.server.presentation.req.PaymentRequest.V1_PayReservation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,7 @@ public class PaymentController {
   }
 
   @PostMapping("/api/v1/payments")
-  public ResponseEntity<Void> createPayment(@RequestBody PaymentRequest.V1_PayReservation req) {
+  public ResponseEntity<Void> createPayment(@RequestBody V1_PayReservation req) {
     paymentFacadeService.payForReservation(req.toCommand());
 
     return ResponseEntity.ok().build();

@@ -4,14 +4,12 @@ import kr.hhplus.be.server.application.ConcertFacadeService;
 import kr.hhplus.be.server.application.ConcertInfo;
 import kr.hhplus.be.server.application.ConcertInfo.GetAvailableConcerts;
 import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleCommand;
-import kr.hhplus.be.server.domain.concertSchedule.ConcertScheduleId;
-import kr.hhplus.be.server.presentation.ConcertResponse.V1_GetAvailableList;
-import kr.hhplus.be.server.presentation.ConcertResponse.V1_GetAvailableSeats;
+import kr.hhplus.be.server.presentation.res.ConcertResponse.V1_GetAvailableList;
+import kr.hhplus.be.server.presentation.res.ConcertResponse.V1_GetAvailableSeats;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

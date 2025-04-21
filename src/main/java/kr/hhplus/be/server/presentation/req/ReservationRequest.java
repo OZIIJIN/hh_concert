@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.presentation;
+package kr.hhplus.be.server.presentation.req;
 
 import java.util.List;
 import java.util.UUID;

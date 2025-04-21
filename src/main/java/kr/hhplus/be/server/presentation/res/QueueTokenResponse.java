@@ -1,4 +1,4 @@
-package kr.hhplus.be.server.presentation;
+package kr.hhplus.be.server.presentation.res;
 
 import java.util.UUID;
 import kr.hhplus.be.server.application.QueueTokenInfo;
