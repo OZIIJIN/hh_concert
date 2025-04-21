@@ -23,15 +23,17 @@ public class QueueTokenController {
   }
 
   @PostMapping("/api/v1/queue-tokens")
-  public ResponseEntity<V1_Issue> issue(@RequestBody UUID userId) {
-    UUID queueToken = queueTokenService.issueToken(new UserId(userId));
+  public ResponseEntity<V1_Issue> issue(@RequestBody String userId) {
+    UUID queueToken = queueTokenService.issueToken(new UserId(UUID.fromString(userId)));
 
     return ResponseEntity.ok(QueueTokenResponse.V1_Issue.from(queueToken));
   }
 
-  @GetMapping("/api/v1/queue-tokens/")
-  public ResponseEntity<QueueTokenResponse.V1_GetPosition> getPosition(@RequestParam UUID userId) {
-    QueueTokenInfo.QueueTokenDetail info = queueTokenService.getMyPosition(new UserId(userId));
+  @GetMapping("/api/v1/queue-tokens")
+  public ResponseEntity<QueueTokenResponse.V1_GetPosition> getPosition(
+      @RequestParam String userId) {
+    QueueTokenInfo.QueueTokenDetail info = queueTokenService.getMyPosition(
+        new UserId(UUID.fromString(userId)));
 
     return ResponseEntity.ok(QueueTokenResponse.V1_GetPosition.from(info));
   }
